@@ -72,8 +72,25 @@ const transform = computed(() => {
 
 <template>
   <h1>{{ msg }}</h1>
-  <textarea rows="10" v-model="value"></textarea>
-  <textarea rows="10" v-model="transform"></textarea>
+  <div style="display: flex; flex-direction: column; min-width: 300px; max-width: 500px; justify-content: center;">
+    <label for="paste">colle ton résultat sutom ici</label>
+    <p  style="font-size: .6rem">
+      exemple:
+      <span> 
+        <br />SUTOM #67 3/6
+        <br />🟥🟦🟡🟦🟦🟡🟥🟡
+        <br />🟥🟥🟥🟥🟥🟦🟡🟦
+        <br />🟥🟥🟥🟥🟥🟥🟥🟥
+      </span>
+    </p>
+    <textarea id="paste" rows="10" v-model="value"></textarea>
+    <br />
+    <br />
+    <br />
+    <label for="copy">copie le superbe résultat ici</label>
+
+    <textarea id="copy" rows="10" v-model="transform"></textarea>
+  </div>
 </template>
 
 <style scoped>

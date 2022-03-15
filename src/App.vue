@@ -10,6 +10,10 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <style>
 #app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
