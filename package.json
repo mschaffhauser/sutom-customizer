@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --base=/sutom-customizer",
     "preview": "vite preview",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
