@@ -269,6 +269,11 @@ magic-string@^0.25.7:
   dependencies:
     sourcemap-codec "^1.4.8"
 
+minimist@^1.2.0:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
+  integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
+
 nanoid@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.1.tgz#6347a18cac88af88f58af0b3594b723d5e99bb35"
@@ -292,6 +297,13 @@ postcss@^8.1.10, postcss@^8.4.6:
     nanoid "^3.3.1"
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
+
+push-dir@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/push-dir/-/push-dir-0.4.1.tgz#29481eacd9c2106bbb7941db6d37d122a071ecb4"
+  integrity sha1-KUgerNnCEGu7eUHbbTfRIqBx7LQ=
+  dependencies:
+    minimist "^1.2.0"
 
 resolve@^1.22.0:
   version "1.22.0"
