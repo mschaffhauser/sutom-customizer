@@ -4,6 +4,39 @@ import { ref, computed } from 'vue'
 defineProps({
   msg: String
 })
+const customConfigList = [
+  {
+    name: 'dark',
+    correctSpotEmoji: '🟩',
+    correctLetterEmoji: '🟨',
+    wrongLetterEmoji: '⬛'
+  },
+  {
+    name: 'light',
+    correctSpotEmoji: '🟩',
+    correctLetterEmoji: '🟨',
+    wrongLetterEmoji: '⬜'
+  },
+  {
+    name: 'colorBlind',
+    correctSpotEmoji: '🟧',
+    correctLetterEmoji: '🟦',
+    wrongLetterEmoji: '⬜'
+  },
+  {
+    name: 'coeur',
+    correctSpotEmoji: '💚',
+    correctLetterEmoji: '💛',
+    wrongLetterEmoji: '💔'
+  },
+  {
+    name: 'fruits',
+    correctSpotEmoji: '🍏',
+    correctLetterEmoji: '🍌',
+    wrongLetterEmoji: '🍎',
+  },
+
+]
 let baseConfig = {
   "name": "base",
   "correctSpotEmoji": "🟥",
@@ -17,7 +50,7 @@ let customConfig = {
   "wrongLetterEmoji": "🥚"
 }
 
-const value = ref('SUTOM #67 3/6🟥🟦🟡🟦🟦🟡🟥🟡🟥🟥🟥🟥🟥🟦🟡🟦🟥🟥🟥🟥🟥🟥🟥🟥')
+const value = ref('')
 const transform = computed(() => {
   return [...value.value].map(letter => {
     if (letter === ' ') {
@@ -26,15 +59,15 @@ const transform = computed(() => {
     if (letter === baseConfig.correctSpotEmoji) {
       return customConfig.correctSpotEmoji
     }
-    if (letter ===  baseConfig.correctLetterEmoji) {
+    if (letter === baseConfig.correctLetterEmoji) {
       return customConfig.correctLetterEmoji
     }
-    if (letter ===  baseConfig.wrongLetterEmoji) {
+    if (letter === baseConfig.wrongLetterEmoji) {
       return customConfig.wrongLetterEmoji
     }
     return letter
   }).join('')
-  })
+})
 </script>
 
 <template>
