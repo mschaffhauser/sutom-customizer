@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
-
+import { UseMouse, UseDark, UseWindowSize  } from '@vueuse/components'
+import { useMouse, useDark, useWindowSize  } from '@vueuse/core'
 defineProps({
   msg: String
 })
@@ -49,8 +50,16 @@ let customConfig = {
   "correctLetterEmoji": "🐤",
   "wrongLetterEmoji": "🥚"
 }
+const { width, height } = useWindowSize()
+const { x, y, sourceType } = useMouse()
 
 const value = ref('')
+const color = computed(() => {
+  if (sourceType === 'mouse') {
+    return `rgb(${x.value}, ${y.value},0)`
+  }
+  return  `rgb(${x.value}, ${y.value},0)`
+})
 const transform = computed(() => {
   return [...value.value].map(letter => {
     if (letter === ' ') {
@@ -68,12 +77,15 @@ const transform = computed(() => {
     return letter
   }).join('')
 })
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(transform.value)
+}
 </script>
 
 <template>
   <h1>{{ msg }}</h1>
   <div style="display: flex; flex-direction: column; min-width: 300px; max-width: 500px; justify-content: center;">
-    <label for="paste">colle ton résultat sutom ici</label>
+    <label for="paste" :style="`background-color: ${color}`">colle ton résultat sutom ici</label>
     <p  style="font-size: .6rem">
       exemple:
       <span> 
@@ -90,6 +102,20 @@ const transform = computed(() => {
     <label for="copy">copie le superbe résultat ici</label>
 
     <textarea id="copy" rows="10" v-model="transform"></textarea>
+    <button @click="copyToClipboard(transform)">copier</button>
+    <UseDark v-slot="{ isDark, toggleDark }">
+      <button @click="toggleDark()">
+        Is Dark: {{ isDark }}
+      </button>
+    </UseDark>
+    <UseMouse v-slot="{ x, y }">
+      x: {{ x }}
+      y: {{ y }}
+    </UseMouse>
+    <UseWindowSize v-slot="{ width, height }">
+      Width: {{ width }}
+      Height: {{ height }}
+    </UseWindowSize>
   </div>
 </template>
 
