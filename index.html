@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐣</text></svg>">
+  <title>Sutom Customizer 🐣</title>
+  <meta name="description" content="Sutom Customizer">
+  <script type="module" crossorigin src="/sutom-customizer/assets/index.0b64f43e.js"></script>
+  <link rel="stylesheet" href="/sutom-customizer/assets/index.e2c06ad2.css">
+</head>
+<body class="font-sans dark:text-white dark:bg-hex-121212">
+  <div id="app"></div>
+  <script>
+    (function () {
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+      const setting = localStorage.getItem('color-schema') || 'auto'
+      if (setting === 'dark' || (prefersDark && setting !== 'light'))
+        document.documentElement.classList.toggle('dark', true)
+    })()
+  </script>
+  
+</body>
+</html>
