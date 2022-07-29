@@ -3,19 +3,6 @@
 import { ref } from 'vue'
 const value = ref('')
 const example = ref(null)
-// eslint-disable-next-line no-console
-console.log(ref.example)
-const go = () => {
-  // eslint-disable-next-line no-console
-  console.log(ref.example.value.value)
-}
-watchEffect(() => {
-  if (value.value)
-    // eslint-disable-next-line no-console
-    console.log(value.value)
-  // eslint-disable-next-line no-console
-  else console.log(ref.example)
-})
 const customConfigList = [
   {
     name: 'dark',
