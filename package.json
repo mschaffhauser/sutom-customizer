@@ -8,13 +8,15 @@
     "typecheck": "vue-tsc --noEmit",
     "preview": "vite preview",
     "test": "vitest",
-    "up": "taze major -I"
+    "up": "taze major -I",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
     "@vueuse/core": "^9.0.0",
     "vue": "^3.2.37",
-    "vue-router": "^4.1.2"
-  },
+    "vue-router": "^4.1.2",
+    "push-dir": "^0.4.1"
+    },
   "devDependencies": {
     "@antfu/eslint-config": "^0.25.2",
     "@iconify-json/carbon": "^1.1.7",
