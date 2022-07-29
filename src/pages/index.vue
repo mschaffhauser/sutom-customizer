@@ -13,10 +13,8 @@ watchEffect(() => {
   if (value.value)
     // eslint-disable-next-line no-console
     console.log(value.value)
-
-  else
-    // eslint-disable-next-line no-console
-    console.log(ref.example)
+  // eslint-disable-next-line no-console
+  else console.log(ref.example)
 })
 const customConfigList = [
   {
@@ -49,7 +47,6 @@ const customConfigList = [
     correctLetterEmoji: '🍌',
     wrongLetterEmoji: '🍎',
   },
-
 ]
 // eslint-disable-next-line no-console
 console.log(customConfigList)
@@ -67,75 +64,79 @@ const customConfig = {
 }
 
 const transform = computed(() => {
-  return [...value.value].map((letter) => {
-    if (letter === ' ')
-      return ' '
+  return [...value.value]
+    .map((letter) => {
+      if (letter === ' ')
+        return ' '
 
-    if (letter === baseConfig.correctSpotEmoji)
-      return customConfig.correctSpotEmoji
+      if (letter === baseConfig.correctSpotEmoji)
+        return customConfig.correctSpotEmoji
 
-    if (letter === baseConfig.correctLetterEmoji)
-      return customConfig.correctLetterEmoji
+      if (letter === baseConfig.correctLetterEmoji)
+        return customConfig.correctLetterEmoji
 
-    if (letter === baseConfig.wrongLetterEmoji)
-      return customConfig.wrongLetterEmoji
+      if (letter === baseConfig.wrongLetterEmoji)
+        return customConfig.wrongLetterEmoji
 
-    return letter
-  }).join('')
+      return letter
+    })
+    .join('')
 })
 function copyToClipboard(text: string) {
   navigator.clipboard.writeText(transform.value)
 }
 function pasteToClipboard() {
-  navigator.clipboard.readText().then(text => value.value = text)
+  navigator.clipboard.readText().then(text => (value.value = text))
+}
+function copyPasteExample() {
+  document.querySelectorAll('.open_grepper_editor').forEach(el => el.remove())
+  const pre = document.getElementById('exemple')?.innerHTML || ''
+  value.value = pre
 }
 </script>
 
 <template>
   <div>
     <div text-4xl>
-      <div inline-block class="i-twemoji-egg active:i-twemoji-front-facing-baby-chick hover:i-twemoji-hatching-chick " />
-      <div inline-block class="i-twemoji-egg hover:i-twemoji-front-facing-baby-chick i-twemoji-hatching-chick " />
-      <div inline-block class="i-twemoji-front-facing-baby-chick hover:i-twemoji-egg " />
+      <div
+        inline-block
+        class="i-twemoji-egg active:i-twemoji-front-facing-baby-chick hover:i-twemoji-hatching-chick"
+      />
+      <div
+        inline-block
+        class="i-twemoji-egg hover:i-twemoji-front-facing-baby-chick i-twemoji-hatching-chick"
+      />
+      <div inline-block class="i-twemoji-front-facing-baby-chick hover:i-twemoji-egg" />
     </div>
-    <p>
-      Sutom Customizer
-    </p>
+    <p>Sutom Customizer</p>
     <p>
       <em text-sm op75 />
     </p>
 
     <div py-4 />
 
-    <div>
-      <button
-        class="m-3 text-sm btn"
-      >
-        Example
+    <div flex justify-center>
+      <button class="m-3 text-sm btn" @click="pasteToClipboard()">
+        Coller
+      </button>
+      <button class="m-3 text-sm btn-secondary" @click="copyPasteExample()">
+        Essayer l'exemple
       </button>
     </div>
-    <button
-      class="m-3 text-sm btn"
-      @click="pasteToClipboard()"
-    >
-      Coller
-    </button>
     <div>
-      <div id="text" contenteditable="true" />
-
-      <p style="font-size: 1rem">
-        exemple:
-        <pre id="ex" ref="example" value="ts">
+      <pre id="exemple" class="hidden">
           SUTOM #67 3/6
           🟥🟦🟡🟦🟦🟡🟥🟡
           🟥🟥🟥🟥🟥🟦🟡🟦
           🟥🟥🟥🟥🟥🟥🟥🟥
         </pre>
-      </p>
       <textarea
         id="paste"
         v-model="value"
-        w-100 placeholder="Colle ton résultat ici" rows="10" text="center"
+        w-100
+        placeholder="Colle ton résultat ici"
+        rows="10"
+        text="center"
         bg="transparent"
         border="~ rounded gray-200 dark:gray-700"
         outline="none active:none"
@@ -147,16 +148,16 @@ function pasteToClipboard() {
       <textarea
         id="copy"
         v-model="transform"
-        w-100 placeholder="copie le superbe résultat ici" rows="10" text="center"
+        w-100
+        placeholder="copie le superbe résultat ici"
+        rows="10"
+        text="center"
         bg="transparent"
         border="~ rounded gray-200 dark:gray-700"
         outline="none active:none"
       />
       <p />
-      <button
-        class="m-3 text-sm btn"
-        @click="copyToClipboard(transform)"
-      >
+      <button class="m-3 text-sm btn-green" @click="copyToClipboard(transform)">
         Copier
       </button>
     </div>
