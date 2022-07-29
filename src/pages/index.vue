@@ -1,14 +1,22 @@
 <script setup lang="ts">
-const user = useUserStore()
-const name = $ref(user.savedName)
-
-const router = useRouter()
-const go = () => {
-  if (name)
-    router.push(`/hi/${encodeURIComponent(name)}`)
-}
+import { ref } from 'vue'
 const value = ref('')
+const example = ref(null)
+// eslint-disable-next-line no-console
+console.log(ref.example)
+const go = () => {
+  // eslint-disable-next-line no-console
+  console.log(ref.example.value.value)
+}
+watchEffect(() => {
+  if (value.value)
+    // eslint-disable-next-line no-console
+    console.log(value.value)
 
+  else
+    // eslint-disable-next-line no-console
+    console.log(ref.example)
+})
 const customConfigList = [
   {
     name: 'dark',
@@ -74,74 +82,63 @@ const transform = computed(() => {
     return letter
   }).join('')
 })
-const { t } = useI18n()
 </script>
 
 <template>
   <div>
     <div text-4xl>
-      <div i-carbon-campsite inline-block />
+      <div inline-block class="i-twemoji-egg active:i-twemoji-front-facing-baby-chick hover:i-twemoji-hatching-chick " />
+      <div inline-block class="i-twemoji-egg hover:i-twemoji-front-facing-baby-chick i-twemoji-hatching-chick " />
+      <div inline-block class="i-twemoji-front-facing-baby-chick hover:i-twemoji-egg " />
     </div>
     <p>
-      <a rel="noreferrer" href="https://github.com/antfu/vitesse" target="_blank">
-        Vitesse
-      </a>
+      Sutom Customizer
     </p>
     <p>
-      <em text-sm opacity-75>{{ t('intro.desc') }}</em>
+      <em text-sm op75 />
     </p>
 
     <div py-4 />
 
-    <input
-      id="input"
-      v-model="name"
-      :placeholder="t('intro.whats-your-name')"
-      :aria-label="t('intro.whats-your-name')"
-      type="text"
-      autocomplete="false"
-      p="x4 y2"
-      w="250px"
-      text="center"
-      bg="transparent"
-      border="~ rounded gray-200 dark:gray-700"
-      outline="none active:none"
-      @keydown.enter="go"
-    >
-    <label class="hidden" for="input">{{ t('intro.whats-your-name') }}</label>
-
     <div>
       <button
-        btn m-3 text-sm
-        :disabled="!name"
+        class="m-3 text-sm btn"
         @click="go"
       >
-        {{ t('button.go') }}
+        Example
       </button>
     </div>
-    <div style="display: flex; flex-direction: column; min-width: 300px; max-width: 500px; justify-content: center;">
+    <div>
       <label for="paste">colle ton résultat sutom ici</label>
-      <p style="font-size: .6rem">
+      <p style="font-size: 1rem">
         exemple:
-        <span>
+        <span ref="example" value="ts">
           <br>SUTOM #67 3/6
           <br>🟥🟦🟡🟦🟦🟡🟥🟡
           <br>🟥🟥🟥🟥🟥🟦🟡🟦
           <br>🟥🟥🟥🟥🟥🟥🟥🟥
         </span>
       </p>
-      <textarea id="paste" v-model="value" rows="10" />
+      <textarea
+        id="paste"
+        v-model="value"
+        w-100 placeholder="Colle ton résultat ici" rows="10" text="center"
+        bg="transparent"
+        border="~ rounded gray-200 dark:gray-700"
+        outline="none active:none"
+      />
       <br>
       <br>
       <br>
-      <label for="copy">copie le superbe résultat ici</label>
-
-      <textarea id="copy" v-model="transform" rows="10" />
+      <p />
+      <textarea
+        id="copy"
+        v-model="transform"
+        w-100 placeholder="copie le superbe résultat ici" rows="10" text="center"
+        bg="transparent"
+        border="~ rounded gray-200 dark:gray-700"
+        outline="none active:none"
+      />
     </div>
   </div>
 </template>
-
-<route lang="yaml">
-meta:
-  layout: home
-</route>
