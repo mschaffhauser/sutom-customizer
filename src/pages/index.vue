@@ -112,11 +112,10 @@ function copyPasteExample() {
     </div>
     <div>
       <pre id="exemple" class="hidden">
-          SUTOM #67 3/6
-          🟥🟦🟡🟦🟦🟡🟥🟡
-          🟥🟥🟥🟥🟥🟦🟡🟦
-          🟥🟥🟥🟥🟥🟥🟥🟥
-        </pre>
+SUTOM #67 3/6
+🟥🟦🟡🟦🟦🟡🟥🟡
+🟥🟥🟥🟥🟥🟦🟡🟦
+🟥🟥🟥🟥🟥🟥🟥🟥</pre>
       <textarea
         id="paste"
         v-model="value"
