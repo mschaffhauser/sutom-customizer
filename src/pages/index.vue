@@ -149,7 +149,7 @@ function copyPasteExample() {
         id="copy"
         v-model="transform"
         w-100
-        placeholder="copie le superbe résultat ici"
+        placeholder="Copie le superbe résultat ici"
         rows="10"
         text="center"
         bg="transparent"
