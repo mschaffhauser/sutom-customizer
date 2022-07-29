@@ -1,3 +1,4 @@
+<!-- eslint-disable no-console -->
 <script setup lang="ts">
 import { ref } from 'vue'
 const value = ref('')
@@ -82,6 +83,12 @@ const transform = computed(() => {
     return letter
   }).join('')
 })
+function copyToClipboard(text: string) {
+  navigator.clipboard.writeText(transform.value)
+}
+function pasteToClipboard() {
+  navigator.clipboard.readText().then(text => value.value = text)
+}
 </script>
 
 <template>
@@ -103,21 +110,27 @@ const transform = computed(() => {
     <div>
       <button
         class="m-3 text-sm btn"
-        @click="go"
       >
         Example
       </button>
     </div>
+    <button
+      class="m-3 text-sm btn"
+      @click="pasteToClipboard()"
+    >
+      Coller
+    </button>
     <div>
-      <label for="paste">colle ton résultat sutom ici</label>
+      <div id="text" contenteditable="true" />
+
       <p style="font-size: 1rem">
         exemple:
-        <span ref="example" value="ts">
-          <br>SUTOM #67 3/6
-          <br>🟥🟦🟡🟦🟦🟡🟥🟡
-          <br>🟥🟥🟥🟥🟥🟦🟡🟦
-          <br>🟥🟥🟥🟥🟥🟥🟥🟥
-        </span>
+        <pre id="ex" ref="example" value="ts">
+          SUTOM #67 3/6
+          🟥🟦🟡🟦🟦🟡🟥🟡
+          🟥🟥🟥🟥🟥🟦🟡🟦
+          🟥🟥🟥🟥🟥🟥🟥🟥
+        </pre>
       </p>
       <textarea
         id="paste"
@@ -139,6 +152,13 @@ const transform = computed(() => {
         border="~ rounded gray-200 dark:gray-700"
         outline="none active:none"
       />
+      <p />
+      <button
+        class="m-3 text-sm btn"
+        @click="copyToClipboard(transform)"
+      >
+        Copier
+      </button>
     </div>
   </div>
 </template>
