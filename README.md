@@ -2,6 +2,7 @@
 
 A little site to change the emoji of [sutom](https://sutom.nocle.fr/) results
 
+## [Demo](https://mschaffhauser.github.io/sutom-customizer/)
 ![alt text](./assets/capture.png)
 It's a work in progress (not the cleanest repo 😔)
 
