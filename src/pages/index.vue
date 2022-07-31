@@ -96,7 +96,7 @@ function copyPasteExample() {
       Sutom Customizer
     </h1>
     <p>
-      <span mx-1 mt-3 text-xl flex justify-center items-center>🟥 🟦 🟡 <i class="mx-2 block i-carbon-arrow-right" />  <span v-html="customConfigText" /></span>
+      <span mx-1 mt-3 text-xl flex justify-center items-center>🟥 🟡 🟦 <i class="mx-2 block i-carbon-arrow-right" />  <span v-html="customConfigText" /></span>
     </p>
     <SelectConfig v-model:selected="selected" class="flex flex-col items-center" text="Choisie ta configuration" />
     <div py-4 />
