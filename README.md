@@ -1,10 +1,60 @@
+# SUTOM customizer WIP
+
+A little site to change the emoji of [sutom](https://sutom.nocle.fr/) results
+
+## It's a work in progress (not the cleanest repo 😔)
+![alt text](./assets/capture.png)
+
+### The diffenrents config
+
+```javascript
+const configList = [
+  {
+    name: 'chicks',
+    correctSpotEmoji: '🐣',
+    correctLetterEmoji: '🐤',
+    wrongLetterEmoji: '🥚',
+  },
+  {
+    name: 'dark',
+    correctSpotEmoji: '🟩',
+    correctLetterEmoji: '🟨',
+    wrongLetterEmoji: '⬛',
+  },
+  {
+    name: 'light',
+    correctSpotEmoji: '🟩',
+    correctLetterEmoji: '🟨',
+    wrongLetterEmoji: '⬜',
+  },
+  {
+    name: 'colorBlind',
+    correctSpotEmoji: '🟧',
+    correctLetterEmoji: '🟦',
+    wrongLetterEmoji: '⬜',
+  },
+  {
+    name: 'coeur',
+    correctSpotEmoji: '💚',
+    correctLetterEmoji: '💛',
+    wrongLetterEmoji: '💔',
+  },
+  {
+    name: 'fruits',
+    correctSpotEmoji: '🍏',
+    correctLetterEmoji: '🍌',
+    wrongLetterEmoji: '🍎',
+  },
+]
+```
+
 ## Demo
 
 https://mschaffhauser.github.io/sutom-customizer/
 
 
-
-# Vue 3 + Vite
+# Theme [Vitesse-lite](https://github.com/antfu/vitesse-lite)
+## Vue 3 + Vite
 
 This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
