@@ -7,7 +7,7 @@
     <a
       icon-btn i-carbon-logo-github
       rel="noreferrer"
-      href="https://mschaffhauser.github.io/sutom-customizer/"
+      href="https://github.com/mschaffhauser/sutom-customizer"
       target="_blank"
       title="GitHub"
     />
