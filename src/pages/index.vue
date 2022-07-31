@@ -2,8 +2,14 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 const value = ref('')
-const example = ref(null)
-const customConfigList = [
+const selected = ref('chicks')
+const configList = [
+  {
+    name: 'chicks',
+    correctSpotEmoji: '🐣',
+    correctLetterEmoji: '🐤',
+    wrongLetterEmoji: '🥚',
+  },
   {
     name: 'dark',
     correctSpotEmoji: '🟩',
@@ -36,19 +42,16 @@ const customConfigList = [
   },
 ]
 // eslint-disable-next-line no-console
-console.log(customConfigList)
+console.log(configList)
 const baseConfig = {
   name: 'base',
   correctSpotEmoji: '🟥',
   correctLetterEmoji: '🟡',
   wrongLetterEmoji: '🟦',
 }
-const customConfig = {
-  name: 'Chicks',
-  correctSpotEmoji: '🐣',
-  correctLetterEmoji: '🐤',
-  wrongLetterEmoji: '🥚',
-}
+const customConfig = computed(() => {
+  return configList.find(config => config.name === selected.value) || configList[0]
+})
 
 const transform = computed(() => {
   return [...value.value]
@@ -57,13 +60,13 @@ const transform = computed(() => {
         return ' '
 
       if (letter === baseConfig.correctSpotEmoji)
-        return customConfig.correctSpotEmoji
+        return customConfig.value.correctSpotEmoji || '🟥'
 
       if (letter === baseConfig.correctLetterEmoji)
-        return customConfig.correctLetterEmoji
+        return customConfig.value.correctLetterEmoji || '🟥'
 
       if (letter === baseConfig.wrongLetterEmoji)
-        return customConfig.wrongLetterEmoji
+        return customConfig.value.wrongLetterEmoji || '🟦'
 
       return letter
     })
@@ -73,6 +76,7 @@ function copyToClipboard(text: string) {
   navigator.clipboard.writeText(transform.value)
 }
 function pasteToClipboard() {
+  console.log(customConfig)
   navigator.clipboard.readText().then(text => (value.value = text))
 }
 function copyPasteExample() {
@@ -97,9 +101,9 @@ function copyPasteExample() {
     </div>
     <p>Sutom Customizer</p>
     <p>
-      <em text-sm op75 />
+      <em />
     </p>
-
+    <SelectConfig v-model:selected="selected" class="flex flex-col items-center" text="Choisie ta configuration" />
     <div py-4 />
 
     <div flex justify-center>
@@ -119,7 +123,7 @@ SUTOM #67 3/6
       <textarea
         id="paste"
         v-model="value"
-        w-100
+        w="250px"
         placeholder="Colle ton résultat ici"
         rows="10"
         text="center"
@@ -134,7 +138,7 @@ SUTOM #67 3/6
       <textarea
         id="copy"
         v-model="transform"
-        w-100
+        w="250px"
         placeholder="Copie le superbe résultat ici"
         rows="10"
         text="center"
@@ -145,6 +149,9 @@ SUTOM #67 3/6
       <p />
       <button class="m-3 text-sm btn-green" @click="copyToClipboard(transform)">
         Copier
+      </button>
+      <button v-if="supportShare()" class="m-3 text-sm btn-green" @click="startShare(transform)">
+        Partager
       </button>
     </div>
   </div>
