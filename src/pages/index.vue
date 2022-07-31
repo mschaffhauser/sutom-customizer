@@ -134,8 +134,10 @@ SUTOM #67 3/6
       <textarea
         id="copy"
         v-model="transform"
+        :disabled="!value"
         w="250px"
         h="120px"
+        :class="!value ? 'op50' : ''"
         placeholder="Copie le superbe résultat ici"
         rows="10"
         text="center"
