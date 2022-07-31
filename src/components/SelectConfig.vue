@@ -55,7 +55,7 @@ const customConfigList = [
 
 <template>
   <div>
-    <label text-sm my-4>{{ props.text }}</label>
+    <label text-md my-4>{{ props.text }}</label>
     <select
       v-model="value" p="x4 y2"
       w="120px"

@@ -52,6 +52,9 @@ const baseConfig = {
 const customConfig = computed(() => {
   return configList.find(config => config.name === selected.value) || configList[0]
 })
+const customConfigText = computed(() => {
+  return `${`${customConfig.value.correctSpotEmoji}&nbsp;${customConfig.value.correctLetterEmoji}`}&nbsp;${customConfig.value.wrongLetterEmoji}`
+})
 
 const transform = computed(() => {
   return [...value.value]
@@ -88,20 +91,12 @@ function copyPasteExample() {
 
 <template>
   <div>
-    <div text-4xl>
-      <div
-        inline-block
-        class="i-twemoji-egg active:i-twemoji-front-facing-baby-chick hover:i-twemoji-hatching-chick"
-      />
-      <div
-        inline-block
-        class="i-twemoji-egg hover:i-twemoji-front-facing-baby-chick i-twemoji-hatching-chick"
-      />
-      <div inline-block class="i-twemoji-front-facing-baby-chick hover:i-twemoji-egg" />
-    </div>
-    <p>Sutom Customizer</p>
+    <div />
+    <h1 text-2xl>
+      Sutom Customizer
+    </h1>
     <p>
-      <em />
+      <span mx-1 mt-3 text-xl flex justify-center items-center>🟥 🟦 🟡 <i class="mx-2 block i-carbon-arrow-right" />  <span v-html="customConfigText" /></span>
     </p>
     <SelectConfig v-model:selected="selected" class="flex flex-col items-center" text="Choisie ta configuration" />
     <div py-4 />
@@ -124,6 +119,7 @@ SUTOM #67 3/6
         id="paste"
         v-model="value"
         w="250px"
+        h="120px"
         placeholder="Colle ton résultat ici"
         rows="10"
         text="center"
@@ -139,6 +135,7 @@ SUTOM #67 3/6
         id="copy"
         v-model="transform"
         w="250px"
+        h="120px"
         placeholder="Copie le superbe résultat ici"
         rows="10"
         text="center"
@@ -147,12 +144,19 @@ SUTOM #67 3/6
         outline="none active:none"
       />
       <p />
-      <button class="m-3 text-sm btn-green" @click="copyToClipboard(transform)">
+      <button :disabled="!value" :class="!value ? 'disabled' : ''" m-3 text-sm btn-green @click="copyToClipboard(transform)">
         Copier
       </button>
       <button v-if="supportShare()" class="m-3 text-sm btn-green" @click="startShare(transform)">
         Partager
       </button>
+      <div v-if="value && customConfig.name === 'chicks'" text-xl m-auto i-twemoji-egg hover:i-twemoji-hatching-chick />
     </div>
   </div>
 </template>
+
+<style scoped lang="scss">
+.disabled {
+pointer-events: none;
+}
+</style>
