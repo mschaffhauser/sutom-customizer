@@ -2,8 +2,8 @@
 
 A little site to change the emoji of [sutom](https://sutom.nocle.fr/) results
 
-## It's a work in progress (not the cleanest repo 😔)
 ![alt text](./assets/capture.png)
+It's a work in progress (not the cleanest repo 😔)
 
 ### The diffenrents config
 
