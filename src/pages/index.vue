@@ -1,23 +1,24 @@
 <!-- eslint-disable no-console -->
 <script setup lang="ts">
 import { ref } from 'vue'
+import type { Ref } from 'vue'
 import customConfigList from './../../json/config-emoji.json'
-const value = ref('')
-const creditMe = ref(false)
-const selected = ref('Chicks!')
+const value: Ref<string> = ref('')
+const creditMe: Ref<boolean> = ref(false)
+const selected: Ref<string> = ref('Chicks!')
 
 // eslint-disable-next-line no-console
 console.log(customConfigList)
-const baseConfig = {
+const baseConfig: { [key: string]: string } = {
   name: 'base',
   wrongLetterEmoji: '🟦',
   correctLetterEmoji: '🟡',
   correctSpotEmoji: '🟥',
 }
-const customConfig = computed(() => {
+const customConfig = computed<{ [key: string]: string }>(() => {
   return customConfigList.find(config => config.name === selected.value) || customConfigList[0]
 })
-const customConfigText = computed(() => {
+const customConfigText = computed<string>(() => {
   return `${`${customConfig.value.correctSpotEmoji}&nbsp;${customConfig.value.correctLetterEmoji}`}&nbsp;${customConfig.value.wrongLetterEmoji}`
 })
 
@@ -52,7 +53,6 @@ function copyToClipboard(text: string) {
   navigator.clipboard.writeText(text)
 }
 function pasteToClipboard() {
-  console.log(customConfig)
   navigator.clipboard.readText().then(text => (value.value = text))
 }
 function copyPasteExample() {
