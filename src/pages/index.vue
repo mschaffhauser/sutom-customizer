@@ -1,69 +1,28 @@
 <!-- eslint-disable no-console -->
 <script setup lang="ts">
 import { ref } from 'vue'
+import customConfigList from './../../json/config-emoji.json'
 const value = ref('')
-const selected = ref('chicks')
-const configList = [
-  {
-    name: 'chicks',
-    correctSpotEmoji: '🐤',
-    correctLetterEmoji: '🐣',
-    wrongLetterEmoji: '🥚',
-  },
-  {
-    name: 'dark',
-    correctSpotEmoji: '🟩',
-    correctLetterEmoji: '🟨',
-    wrongLetterEmoji: '⬛',
-  },
-  {
-    name: 'light',
-    correctSpotEmoji: '🟩',
-    correctLetterEmoji: '🟨',
-    wrongLetterEmoji: '⬜',
-  },
-  {
-    name: 'colorBlind',
-    correctSpotEmoji: '🟧',
-    correctLetterEmoji: '🔵',
-    wrongLetterEmoji: '⬜',
-  },
-  {
-    name: 'coeurSimple',
-    correctSpotEmoji: '❤️',
-    correctLetterEmoji: '💛',
-    wrongLetterEmoji: '💙',
-  },
-  {
-    name: 'coeur',
-    correctSpotEmoji: '💚',
-    correctLetterEmoji: '💛',
-    wrongLetterEmoji: '💔',
-  },
-  {
-    name: 'fruits',
-    correctSpotEmoji: '🍎',
-    correctLetterEmoji: '🍌',
-    wrongLetterEmoji: '🫐',
-  },
-]
+const creditMe = ref(false)
+const selected = ref('Chicks!')
+
 // eslint-disable-next-line no-console
-console.log(configList)
+console.log(customConfigList)
 const baseConfig = {
   name: 'base',
-  correctSpotEmoji: '🟥',
-  correctLetterEmoji: '🟡',
   wrongLetterEmoji: '🟦',
+  correctLetterEmoji: '🟡',
+  correctSpotEmoji: '🟥',
 }
 const customConfig = computed(() => {
-  return configList.find(config => config.name === selected.value) || configList[0]
+  return customConfigList.find(config => config.name === selected.value) || customConfigList[0]
 })
 const customConfigText = computed(() => {
   return `${`${customConfig.value.correctSpotEmoji}&nbsp;${customConfig.value.correctLetterEmoji}`}&nbsp;${customConfig.value.wrongLetterEmoji}`
 })
 
-const transform = computed(() => {
-  return [...value.value]
+const transform = computed<string>(() => {
+  const newContent = [...value.value]
     .map((letter) => {
       if (letter === ' ')
         return ' '
@@ -80,9 +39,17 @@ const transform = computed(() => {
       return letter
     })
     .join('')
+
+  if (creditMe.value) {
+    if (newContent.includes('sutom.nocle.fr'))
+      return newContent.replace('sutom.nocle.fr', 'mschaffhauser.github.io/sutom-customizer')
+    else
+      return `${newContent}https://mschaffhauser.github.io/sutom-customizer/`
+  }
+  return newContent
 })
 function copyToClipboard(text: string) {
-  navigator.clipboard.writeText(transform.value)
+  navigator.clipboard.writeText(text)
 }
 function pasteToClipboard() {
   console.log(customConfig)
@@ -120,12 +87,13 @@ function copyPasteExample() {
 SUTOM #67 3/6
 🟥🟦🟡🟦🟦🟡🟥🟡
 🟥🟥🟥🟥🟥🟦🟡🟦
-🟥🟥🟥🟥🟥🟥🟥🟥</pre>
+🟥🟥🟥🟥🟥🟥🟥🟥
+</pre>
       <textarea
         id="paste"
         v-model="value"
         w="250px"
-        h="120px"
+        h="150px"
         placeholder="Colle ton résultat ici"
         rows="10"
         text="center"
@@ -142,7 +110,7 @@ SUTOM #67 3/6
         v-model="transform"
         :disabled="!value"
         w="250px"
-        h="120px"
+        h="150px"
         :class="!value ? 'op50' : ''"
         placeholder="Copie le superbe résultat ici"
         rows="10"
@@ -152,6 +120,7 @@ SUTOM #67 3/6
         outline="none active:none"
       />
       <p />
+      <p><input v-model="creditMe" class="mr-2" type="checkbox">Partage l'url de ce site</p>
       <button :disabled="!value" :class="!value ? 'disabled' : ''" m-3 text-sm btn-green @click="copyToClipboard(transform)">
         Copier
       </button>

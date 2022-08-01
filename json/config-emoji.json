@@ -1,0 +1,162 @@
+[   {
+        "name": "Chicks!",
+        "wrongLetterEmoji": "🥚",
+        "correctSpotEmoji": "🐣",
+        "correctLetterEmoji": "🐥"
+    },
+    {
+        "name": "ColorBlind",
+        "wrongLetterEmoji": "⬜",
+        "correctLetterEmoji": "🟦",
+        "correctSpotEmoji": "🟧"
+    },
+    {
+        "name": "SimpleHearth",
+        "wrongLetterEmoji": "💙",
+        "correctLetterEmoji": "💛",
+        "correctSpotEmoji": "❤️"
+    },
+    {
+        "name": "Hearth",
+        "wrongLetterEmoji": "💔",
+        "correctLetterEmoji": "💛",
+        "correctSpotEmoji": "💚"
+    },
+    {
+        "name": "Fruits",
+        "wrongLetterEmoji": "🫐",
+        "correctLetterEmoji": "🍌",
+        "correctSpotEmoji": "🍎"
+    }, {
+        "name": "Wordle Classic",
+        "wrongLetterEmoji": "⬜",
+        "correctSpotEmoji": "🟨",
+        "correctLetterEmoji": "🟩"
+    },
+    {
+        "name": "Dark Wordle",
+        "correctSpotEmoji": "🟩",
+        "correctLetterEmoji": "🟨",
+        "wrongLetterEmoji": "⬛"
+    },
+    {
+        "name": "Shape Fill",
+        "wrongLetterEmoji": "⬜",
+        "correctSpotEmoji": "⏹",
+        "correctLetterEmoji": "🟦"
+    },
+    {
+        "name": "Dark",
+        "wrongLetterEmoji": "⬛",
+        "correctSpotEmoji": "🟨",
+        "correctLetterEmoji": "🟩"
+    },
+    {
+        "name": "Hearts",
+        "wrongLetterEmoji": "🤍",
+        "correctSpotEmoji": "💗",
+        "correctLetterEmoji": "💖"
+    },
+    {
+        "name": "Cards",
+        "wrongLetterEmoji": "🟥",
+        "correctSpotEmoji": "🎴",
+        "correctLetterEmoji": "🃏"
+    },
+    {
+        "name": "Sunbeams",
+        "wrongLetterEmoji": "🟦",
+        "correctSpotEmoji": "⛅",
+        "correctLetterEmoji": "🌞"
+    },
+    {
+        "name": "Sunflowers",
+        "wrongLetterEmoji": "🟫",
+        "correctSpotEmoji": "🌱",
+        "correctLetterEmoji": "🌻"
+    },
+    {
+        "name": "Moons",
+        "wrongLetterEmoji": "🌑",
+        "correctSpotEmoji": "🌓",
+        "correctLetterEmoji": "🌕"
+    },
+    {
+        "name": "Rainbows",
+        "wrongLetterEmoji": "☁",
+        "correctSpotEmoji": "🌦",
+        "correctLetterEmoji": "🌈"
+    },
+    {
+        "name": "Tigers",
+        "wrongLetterEmoji": "🟥",
+        "correctSpotEmoji": "🐅",
+        "correctLetterEmoji": "🐯"
+    },
+    {
+        "name": "Boston Flowers",
+        "wrongLetterEmoji": "🟫",
+        "correctSpotEmoji": "🌱",
+        "correctLetterEmoji": "🌹"
+    },
+    {
+        "name": "Shoes",
+        "wrongLetterEmoji": "🟨",
+        "correctSpotEmoji": "🦶",
+        "correctLetterEmoji": "👟"
+    },
+    {
+        "name": "Death Mints",
+        "wrongLetterEmoji": "⬛",
+        "correctSpotEmoji": "🍬",
+        "correctLetterEmoji": "💀"
+    },
+    {
+        "name": "Books",
+        "wrongLetterEmoji": "⬜",
+        "correctSpotEmoji": "📘",
+        "correctLetterEmoji": "📖"
+    },
+    {
+        "name": "Fishing",
+        "wrongLetterEmoji": "🟦",
+        "correctSpotEmoji": "🐟",
+        "correctLetterEmoji": "🎣"
+    },
+    {
+        "name": "Kisses",
+        "wrongLetterEmoji": "🔲",
+        "correctSpotEmoji": "💄",
+        "correctLetterEmoji": "💋"
+    },
+    {
+        "name": "Snow",
+        "wrongLetterEmoji": "☁",
+        "correctSpotEmoji": "🌨",
+        "correctLetterEmoji": "❄"
+    },
+    {
+        "name": "Wormy",
+        "wrongLetterEmoji": "🟫",
+        "correctSpotEmoji": "🐚",
+        "correctLetterEmoji": "🐌"
+    },
+    {
+        "name": "Butterfly",
+        "wrongLetterEmoji": "🍀",
+        "correctSpotEmoji": "🐛",
+        "correctLetterEmoji": "🦋"
+    },
+    {
+        "name": "Crabby",
+        "wrongLetterEmoji": "🟦",
+        "correctSpotEmoji": "🌊",
+        "correctLetterEmoji": "🦀"
+    },
+    {
+        "name": "Fire",
+        "wrongLetterEmoji": "🟫",
+        "correctSpotEmoji": "🪓",
+        "correctLetterEmoji": "🔥"
+    }
+]
