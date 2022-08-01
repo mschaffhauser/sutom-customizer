@@ -3,6 +3,7 @@
 import { ref } from 'vue'
 import type { Ref } from 'vue'
 import customConfigList from './../../json/config-emoji.json'
+
 const value: Ref<string> = ref('')
 const creditMe: Ref<boolean> = ref(false)
 const selected: Ref<string> = ref('Chicks!')
@@ -13,13 +14,13 @@ const baseConfig: { [key: string]: string } = {
   name: 'base',
   wrongLetterEmoji: '🟦',
   correctLetterEmoji: '🟡',
-  correctSpotEmoji: '🟥',
+  correctEmoji: '🟥',
 }
 const customConfig = computed<{ [key: string]: string }>(() => {
   return customConfigList.find(config => config.name === selected.value) || customConfigList[0]
 })
 const customConfigText = computed<string>(() => {
-  return `${`${customConfig.value.correctSpotEmoji}&nbsp;${customConfig.value.correctLetterEmoji}`}&nbsp;${customConfig.value.wrongLetterEmoji}`
+  return `${`${customConfig.value.correctEmoji}&nbsp;${customConfig.value.correctLetterEmoji}`}&nbsp;${customConfig.value.wrongLetterEmoji}`
 })
 
 const transform = computed<string>(() => {
@@ -28,11 +29,11 @@ const transform = computed<string>(() => {
       if (letter === ' ')
         return ' '
 
-      if (letter === baseConfig.correctSpotEmoji)
-        return customConfig.value.correctSpotEmoji || '🟥'
+      if (letter === baseConfig.correctEmoji)
+        return customConfig.value.correctEmoji || '🟥'
 
       if (letter === baseConfig.correctLetterEmoji)
-        return customConfig.value.correctLetterEmoji || '🟥'
+        return customConfig.value.correctLetterEmoji || '🟡'
 
       if (letter === baseConfig.wrongLetterEmoji)
         return customConfig.value.wrongLetterEmoji || '🟦'
