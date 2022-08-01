@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import customConfigList from './../../json/config-emoji.json'
 
 const props = defineProps(['selected', 'text'])
 
@@ -13,44 +14,6 @@ const value = computed({
     emit('update:selected', value)
   },
 })
-const customConfigList = [
-  {
-    name: 'chicks',
-    correctSpotEmoji: '🐣',
-    correctLetterEmoji: '🐤',
-    wrongLetterEmoji: '🥚',
-  },
-  {
-    name: 'dark',
-    correctSpotEmoji: '🟩',
-    correctLetterEmoji: '🟨',
-    wrongLetterEmoji: '⬛',
-  },
-  {
-    name: 'light',
-    correctSpotEmoji: '🟩',
-    correctLetterEmoji: '🟨',
-    wrongLetterEmoji: '⬜',
-  },
-  {
-    name: 'colorBlind',
-    correctSpotEmoji: '🟧',
-    correctLetterEmoji: '🟦',
-    wrongLetterEmoji: '⬜',
-  },
-  {
-    name: 'coeur',
-    correctSpotEmoji: '💚',
-    correctLetterEmoji: '💛',
-    wrongLetterEmoji: '💔',
-  },
-  {
-    name: 'fruits',
-    correctSpotEmoji: '🍏',
-    correctLetterEmoji: '🍌',
-    wrongLetterEmoji: '🍎',
-  },
-]
 </script>
 
 <template>
@@ -58,13 +21,14 @@ const customConfigList = [
     <label text-md my-4>{{ props.text }}</label>
     <select
       v-model="value" p="x4 y2"
-      w="120px"
+      w="200px"
       text="center"
       bg="transparent"
       border="~ rounded gray-200 dark:gray-700"
       outline="none active:none"
     >
       <option v-for="config in customConfigList" :key="config.name" :value="config.name">
+        {{ config.name }}
         {{ config.correctSpotEmoji }}
         {{ config.correctLetterEmoji }}
         {{ config.wrongLetterEmoji }}

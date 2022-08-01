@@ -1,63 +1,29 @@
 <!-- eslint-disable no-console -->
 <script setup lang="ts">
 import { ref } from 'vue'
-const value = ref('')
-const selected = ref('chicks')
-const configList = [
-  {
-    name: 'chicks',
-    correctSpotEmoji: '🐣',
-    correctLetterEmoji: '🐤',
-    wrongLetterEmoji: '🥚',
-  },
-  {
-    name: 'dark',
-    correctSpotEmoji: '🟩',
-    correctLetterEmoji: '🟨',
-    wrongLetterEmoji: '⬛',
-  },
-  {
-    name: 'light',
-    correctSpotEmoji: '🟩',
-    correctLetterEmoji: '🟨',
-    wrongLetterEmoji: '⬜',
-  },
-  {
-    name: 'colorBlind',
-    correctSpotEmoji: '🟧',
-    correctLetterEmoji: '🟦',
-    wrongLetterEmoji: '⬜',
-  },
-  {
-    name: 'coeur',
-    correctSpotEmoji: '💚',
-    correctLetterEmoji: '💛',
-    wrongLetterEmoji: '💔',
-  },
-  {
-    name: 'fruits',
-    correctSpotEmoji: '🍏',
-    correctLetterEmoji: '🍌',
-    wrongLetterEmoji: '🍎',
-  },
-]
+import type { Ref } from 'vue'
+import customConfigList from './../../json/config-emoji.json'
+const value: Ref<string> = ref('')
+const creditMe: Ref<boolean> = ref(false)
+const selected: Ref<string> = ref('Chicks!')
+
 // eslint-disable-next-line no-console
-console.log(configList)
-const baseConfig = {
+console.log(customConfigList)
+const baseConfig: { [key: string]: string } = {
   name: 'base',
-  correctSpotEmoji: '🟥',
-  correctLetterEmoji: '🟡',
   wrongLetterEmoji: '🟦',
+  correctLetterEmoji: '🟡',
+  correctSpotEmoji: '🟥',
 }
-const customConfig = computed(() => {
-  return configList.find(config => config.name === selected.value) || configList[0]
+const customConfig = computed<{ [key: string]: string }>(() => {
+  return customConfigList.find(config => config.name === selected.value) || customConfigList[0]
 })
-const customConfigText = computed(() => {
+const customConfigText = computed<string>(() => {
   return `${`${customConfig.value.correctSpotEmoji}&nbsp;${customConfig.value.correctLetterEmoji}`}&nbsp;${customConfig.value.wrongLetterEmoji}`
 })
 
-const transform = computed(() => {
-  return [...value.value]
+const transform = computed<string>(() => {
+  const newContent = [...value.value]
     .map((letter) => {
       if (letter === ' ')
         return ' '
@@ -74,12 +40,19 @@ const transform = computed(() => {
       return letter
     })
     .join('')
+
+  if (creditMe.value) {
+    if (newContent.includes('sutom.nocle.fr'))
+      return newContent.replace('sutom.nocle.fr', 'mschaffhauser.github.io/sutom-customizer')
+    else
+      return `${newContent} https://mschaffhauser.github.io/sutom-customizer/`
+  }
+  return newContent
 })
 function copyToClipboard(text: string) {
-  navigator.clipboard.writeText(transform.value)
+  navigator.clipboard.writeText(text)
 }
 function pasteToClipboard() {
-  console.log(customConfig)
   navigator.clipboard.readText().then(text => (value.value = text))
 }
 function copyPasteExample() {
@@ -114,12 +87,13 @@ function copyPasteExample() {
 SUTOM #67 3/6
 🟥🟦🟡🟦🟦🟡🟥🟡
 🟥🟥🟥🟥🟥🟦🟡🟦
-🟥🟥🟥🟥🟥🟥🟥🟥</pre>
+🟥🟥🟥🟥🟥🟥🟥🟥
+</pre>
       <textarea
         id="paste"
         v-model="value"
         w="250px"
-        h="120px"
+        h="150px"
         placeholder="Colle ton résultat ici"
         rows="10"
         text="center"
@@ -136,7 +110,7 @@ SUTOM #67 3/6
         v-model="transform"
         :disabled="!value"
         w="250px"
-        h="120px"
+        h="150px"
         :class="!value ? 'op50' : ''"
         placeholder="Copie le superbe résultat ici"
         rows="10"
@@ -146,13 +120,14 @@ SUTOM #67 3/6
         outline="none active:none"
       />
       <p />
+      <p><input v-model="creditMe" class="mr-2" type="checkbox">Partage l'url de ce site</p>
       <button :disabled="!value" :class="!value ? 'disabled' : ''" m-3 text-sm btn-green @click="copyToClipboard(transform)">
         Copier
       </button>
       <button v-if="supportShare()" class="m-3 text-sm btn-green" @click="startShare(transform)">
         Partager
       </button>
-      <div v-if="value && customConfig.name === 'chicks'" text-xl m-auto i-twemoji-egg hover:i-twemoji-hatching-chick />
+      <div v-if="value && customConfig.name === 'Chicks!'" text-xl m-auto i-twemoji-egg hover:i-twemoji-hatching-chick />
     </div>
   </div>
 </template>
