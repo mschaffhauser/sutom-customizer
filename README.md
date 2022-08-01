@@ -12,37 +12,37 @@ It's a work in progress (not the cleanest repo 😔)
 const configList = [
   {
     name: 'chicks',
-    correctSpotEmoji: '🐣',
+    correctEmoji: '🐣',
     correctLetterEmoji: '🐤',
     wrongLetterEmoji: '🥚',
   },
   {
     name: 'dark',
-    correctSpotEmoji: '🟩',
+    correctEmoji: '🟩',
     correctLetterEmoji: '🟨',
     wrongLetterEmoji: '⬛',
   },
   {
     name: 'light',
-    correctSpotEmoji: '🟩',
+    correctEmoji: '🟩',
     correctLetterEmoji: '🟨',
     wrongLetterEmoji: '⬜',
   },
   {
     name: 'colorBlind',
-    correctSpotEmoji: '🟧',
+    correctEmoji: '🟧',
     correctLetterEmoji: '🟦',
     wrongLetterEmoji: '⬜',
   },
   {
     name: 'coeur',
-    correctSpotEmoji: '💚',
+    correctEmoji: '💚',
     correctLetterEmoji: '💛',
     wrongLetterEmoji: '💔',
   },
   {
     name: 'fruits',
-    correctSpotEmoji: '🍏',
+    correctEmoji: '🍏',
     correctLetterEmoji: '🍌',
     wrongLetterEmoji: '🍎',
   },

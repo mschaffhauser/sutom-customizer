@@ -29,7 +29,7 @@ const value = computed({
     >
       <option v-for="config in customConfigList" :key="config.name" :value="config.name">
         {{ config.name }}
-        {{ config.correctSpotEmoji }}
+        {{ config.correctEmoji }}
         {{ config.correctLetterEmoji }}
         {{ config.wrongLetterEmoji }}
       </option>
