@@ -16,8 +16,8 @@ const value = computed({
 const customConfigList = [
   {
     name: 'chicks',
-    correctSpotEmoji: '🐣',
-    correctLetterEmoji: '🐤',
+    correctSpotEmoji: '🐤',
+    correctLetterEmoji: '🐣',
     wrongLetterEmoji: '🥚',
   },
   {
@@ -37,6 +37,12 @@ const customConfigList = [
     correctSpotEmoji: '🟧',
     correctLetterEmoji: '🟦',
     wrongLetterEmoji: '⬜',
+  },
+  {
+    name: 'coeurSimple',
+    correctSpotEmoji: '❤️',
+    correctLetterEmoji: '💛',
+    wrongLetterEmoji: '💙',
   },
   {
     name: 'coeur',

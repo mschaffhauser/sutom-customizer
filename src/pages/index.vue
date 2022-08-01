@@ -6,8 +6,8 @@ const selected = ref('chicks')
 const configList = [
   {
     name: 'chicks',
-    correctSpotEmoji: '🐣',
-    correctLetterEmoji: '🐤',
+    correctSpotEmoji: '🐤',
+    correctLetterEmoji: '🐣',
     wrongLetterEmoji: '🥚',
   },
   {
@@ -25,8 +25,14 @@ const configList = [
   {
     name: 'colorBlind',
     correctSpotEmoji: '🟧',
-    correctLetterEmoji: '🟦',
+    correctLetterEmoji: '🔵',
     wrongLetterEmoji: '⬜',
+  },
+  {
+    name: 'coeurSimple',
+    correctSpotEmoji: '❤️',
+    correctLetterEmoji: '💛',
+    wrongLetterEmoji: '💙',
   },
   {
     name: 'coeur',
@@ -36,9 +42,9 @@ const configList = [
   },
   {
     name: 'fruits',
-    correctSpotEmoji: '🍏',
+    correctSpotEmoji: '🍎',
     correctLetterEmoji: '🍌',
-    wrongLetterEmoji: '🍎',
+    wrongLetterEmoji: '🫐',
   },
 ]
 // eslint-disable-next-line no-console
