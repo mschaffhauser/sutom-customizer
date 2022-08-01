@@ -44,7 +44,7 @@ const transform = computed<string>(() => {
     if (newContent.includes('sutom.nocle.fr'))
       return newContent.replace('sutom.nocle.fr', 'mschaffhauser.github.io/sutom-customizer')
     else
-      return `${newContent}https://mschaffhauser.github.io/sutom-customizer/`
+      return `${newContent} https://mschaffhauser.github.io/sutom-customizer/`
   }
   return newContent
 })
@@ -127,7 +127,7 @@ SUTOM #67 3/6
       <button v-if="supportShare()" class="m-3 text-sm btn-green" @click="startShare(transform)">
         Partager
       </button>
-      <div v-if="value && customConfig.name === 'chicks'" text-xl m-auto i-twemoji-egg hover:i-twemoji-hatching-chick />
+      <div v-if="value && customConfig.name === 'Chicks!'" text-xl m-auto i-twemoji-egg hover:i-twemoji-hatching-chick />
     </div>
   </div>
 </template>
