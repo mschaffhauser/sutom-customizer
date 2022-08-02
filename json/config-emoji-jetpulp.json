@@ -22,11 +22,5 @@
         "wrongLetterEmojiSlack": ":sam-dépitée:",
         "correctLetterEmojiSlack": ":sam-mouais:",
         "correctEmojiSlack": ":noel-sam:"
-    },
-    {
-        "name": "Chicks!",
-        "wrongLetterEmoji": "🥚",
-        "correctLetterEmoji": "🐣",
-        "correctEmoji": "🐥"
     }
 ]
