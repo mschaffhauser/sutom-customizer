@@ -3,11 +3,10 @@
 import { ref } from 'vue'
 import type { Ref } from 'vue'
 import customConfigList from './../../json/config-emoji.json'
-
 const value: Ref<string> = ref('')
 const creditMe: Ref<boolean> = ref(false)
 const selected: Ref<string> = ref('Chicks!')
-
+const isSupported: Ref<boolean> = ref(!!navigator.clipboard.readText())
 // eslint-disable-next-line no-console
 console.log(customConfigList)
 const baseConfig: { [key: string]: string } = {
@@ -73,13 +72,13 @@ function copyPasteExample() {
     <p>
       <span mx-1 mt-3 text-xl flex justify-center items-center>🟥 🟡 🟦 <i class="mx-2 block i-carbon-arrow-right" />  <span v-html="customConfigText" /></span>
     </p>
-    <SelectConfig v-model:selected="selected" class="flex flex-col items-center" text="Choisie ta configuration" />
+    <SelectConfig v-model:selected="selected" class="flex flex-col items-center" text="Choisis ta configuration" />
     <div py-4>
       fonctionnel sur chrome/safari
     </div>
 
     <div flex justify-center>
-      <button class="m-3 text-sm btn" @click="pasteToClipboard()">
+      <button v-if="!isSupported" class="m-3 text-sm btn" @click="pasteToClipboard()">
         Coller
       </button>
       <button class="m-3 text-sm btn-secondary" @click="copyPasteExample()">
