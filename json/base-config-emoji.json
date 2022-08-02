@@ -1,0 +1,6 @@
+{
+    "name": "base",
+    "wrongLetterEmoji": "🟦",
+    "correctLetterEmoji": "🟡",
+    "correctEmoji": "🟥"
+}
