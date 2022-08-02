@@ -9,43 +9,168 @@ It's a work in progress (not the cleanest repo 😔)
 ### The diffenrents config
 
 ```javascript
-const configList = [
+[
   {
-    name: 'chicks',
-    correctEmoji: '🐣',
-    correctLetterEmoji: '🐤',
-    wrongLetterEmoji: '🥚',
-  },
-  {
-    name: 'dark',
-    correctEmoji: '🟩',
-    correctLetterEmoji: '🟨',
-    wrongLetterEmoji: '⬛',
-  },
-  {
-    name: 'light',
-    correctEmoji: '🟩',
-    correctLetterEmoji: '🟨',
-    wrongLetterEmoji: '⬜',
-  },
-  {
-    name: 'colorBlind',
-    correctEmoji: '🟧',
-    correctLetterEmoji: '🟦',
-    wrongLetterEmoji: '⬜',
-  },
-  {
-    name: 'coeur',
-    correctEmoji: '💚',
-    correctLetterEmoji: '💛',
-    wrongLetterEmoji: '💔',
-  },
-  {
-    name: 'fruits',
-    correctEmoji: '🍏',
-    correctLetterEmoji: '🍌',
-    wrongLetterEmoji: '🍎',
-  },
+        "name": "Chicks!",
+        "wrongLetterEmoji": "🥚",
+        "correctLetterEmoji": "🐣",
+        "correctEmoji": "🐥"
+    },
+    {
+        "name": "ColorBlind",
+        "wrongLetterEmoji": "⬜",
+        "correctLetterEmoji": "🟦",
+        "correctEmoji": "🟧"
+    },
+    {
+        "name": "SimpleHearth",
+        "wrongLetterEmoji": "💙",
+        "correctLetterEmoji": "💛",
+        "correctEmoji": "❤️"
+    },
+    {
+        "name": "Hearth",
+        "wrongLetterEmoji": "💔",
+        "correctLetterEmoji": "💛",
+        "correctEmoji": "💚"
+    },
+    {
+        "name": "Fruits",
+        "wrongLetterEmoji": "🫐",
+        "correctLetterEmoji": "🍌",
+        "correctEmoji": "🍎"
+    }, {
+        "name": "Wordle Classic",
+        "wrongLetterEmoji": "⬜",
+        "correctEmoji": "🟨",
+        "correctLetterEmoji": "🟩"
+    },
+    {
+        "name": "Dark Wordle",
+        "wrongLetterEmoji": "⬛",
+        "correctLetterEmoji": "🟨",
+        "correctEmoji": "🟩"
+    },
+    {
+        "name": "Shape Fill",
+        "wrongLetterEmoji": "⬜",
+        "correctLetterEmoji": "⏹",
+        "correctEmoji": "🟦"
+    },
+    {
+        "name": "Dark",
+        "wrongLetterEmoji": "⬛",
+        "correctLetterEmoji": "🟨",
+        "correctEmoji": "🟩"
+    },
+    {
+        "name": "Hearts",
+        "wrongLetterEmoji": "🤍",
+        "correctLetterEmoji": "💗",
+        "correctEmoji": "💖"
+    },
+    {
+        "name": "Cards",
+        "wrongLetterEmoji": "🟥",
+        "correctLetterEmoji": "🎴",
+        "correctEmoji": "🃏"
+    },
+    {
+        "name": "Sunbeams",
+        "wrongLetterEmoji": "🟦",
+        "correctLetterEmoji": "⛅",
+        "correctEmoji": "🌞"
+    },
+    {
+        "name": "Sunflowers",
+        "wrongLetterEmoji": "🟫",
+        "correctLetterEmoji": "🌱",
+        "correctEmoji": "🌻"
+    },
+    {
+        "name": "Moons",
+        "wrongLetterEmoji": "🌑",
+        "correctLetterEmoji": "🌓",
+        "correctEmoji": "🌕"
+    },
+    {
+        "name": "Rainbows",
+        "wrongLetterEmoji": "☁",
+        "correctLetterEmoji": "🌦",
+        "correctEmoji": "🌈"
+    },
+    {
+        "name": "Tigers",
+        "wrongLetterEmoji": "🟥",
+        "correctLetterEmoji": "🐅",
+        "correctEmoji": "🐯"
+    },
+    {
+        "name": "Boston Flowers",
+        "wrongLetterEmoji": "🟫",
+        "correctLetterEmoji": "🌱",
+        "correctEmoji": "🌹"
+    },
+    {
+        "name": "Shoes",
+        "wrongLetterEmoji": "🟨",
+        "correctLetterEmoji": "🦶",
+        "correctEmoji": "👟"
+    },
+    {
+        "name": "Death Mints",
+        "wrongLetterEmoji": "⬛",
+        "correctLetterEmoji": "🍬",
+        "correctEmoji": "💀"
+    },
+    {
+        "name": "Books",
+        "wrongLetterEmoji": "⬜",
+        "correctLetterEmoji": "📘",
+        "correctEmoji": "📖"
+    },
+    {
+        "name": "Fishing",
+        "wrongLetterEmoji": "🟦",
+        "correctLetterEmoji": "🐟",
+        "correctEmoji": "🎣"
+    },
+    {
+        "name": "Kisses",
+        "wrongLetterEmoji": "🔲",
+        "correctLetterEmoji": "💄",
+        "correctEmoji": "💋"
+    },
+    {
+        "name": "Snow",
+        "wrongLetterEmoji": "☁",
+        "correctLetterEmoji": "🌨",
+        "correctEmoji": "❄"
+    },
+    {
+        "name": "Wormy",
+        "wrongLetterEmoji": "🟫",
+        "correctLetterEmoji": "🐚",
+        "correctEmoji": "🐌"
+    },
+    {
+        "name": "Butterfly",
+        "wrongLetterEmoji": "🍀",
+        "correctLetterEmoji": "🐛",
+        "correctEmoji": "🦋"
+    },
+    {
+        "name": "Crabby",
+        "wrongLetterEmoji": "🟦",
+        "correctLetterEmoji": "🌊",
+        "correctEmoji": "🦀"
+    },
+    {
+        "name": "Fire",
+        "wrongLetterEmoji": "🟫",
+        "correctLetterEmoji": "🪓",
+        "correctEmoji": "🔥"
+    }
 ]
 ```
 
