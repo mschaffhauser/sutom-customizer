@@ -124,7 +124,7 @@ SUTOM #67 3/6
       <button :disabled="!value" :class="!value ? 'disabled' : ''" m-3 text-sm btn-green @click="copyToClipboard(transform)">
         Copier
       </button>
-      <button v-if="supportShare()" class="m-3 text-sm btn-green" @click="startShare(transform)">
+      <button v-if="supportShare()" :disabled="!value" class="m-3 text-sm btn-green" @click="startShare(transform)">
         Partager
       </button>
       <div v-if="value && customConfig.name === 'Chicks!'" text-xl m-auto i-twemoji-egg hover:i-twemoji-hatching-chick />
