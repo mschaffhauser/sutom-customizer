@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Suzi",
+        "wrongLetterEmoji": "🟫",
+        "correctLetterEmoji": "🦴",
+        "correctEmoji": "🐶",
+        "correctEmojiSlack": ":suzi:"
+    },
+    {
+        "name": "Pierre",
+        "wrongLetterEmoji": "🥶",
+        "correctLetterEmoji": "🤨",
+        "correctEmoji": "🎅",
+        "correctLetterEmojiSlack": ":pierre-shrug:",
+        "correctEmojiSlack": ":noel-pierre:"
+    },
+    {
+        "name": "Sam",
+        "wrongLetterEmoji": "🥶",
+        "correctLetterEmoji": "🤨",
+        "correctEmoji": "🤶",
+        "wrongLetterEmojiSlack": ":sam-dépitée:",
+        "correctLetterEmojiSlack": ":sam-mouais:",
+        "correctEmojiSlack": ":noel-sam:"
+    },
+    {
+        "name": "Chicks!",
+        "wrongLetterEmoji": "🥚",
+        "correctLetterEmoji": "🐣",
+        "correctEmoji": "🐥"
+    }
+]

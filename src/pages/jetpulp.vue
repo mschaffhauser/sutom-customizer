@@ -2,10 +2,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { Ref } from 'vue'
-import configList from './../../json/config-emoji.json'
+import configList from './../../json/config-emoji-jetpulp.json'
 const value: Ref<string> = ref('')
 const creditMe: Ref<boolean> = ref(false)
-const selected: Ref<string> = ref('Chicks!')
+const selected: Ref<string> = ref('Suzi')
 const isFirefox: Ref<boolean> = ref(navigator.userAgent.includes('Firefox'))
 
 const baseConfig: { [key: string]: string } = {
@@ -21,6 +21,9 @@ const configText = computed<string>(() => {
   return `${`${config.value.correctEmoji}&nbsp;${config.value.correctLetterEmoji}`}&nbsp;${config.value.wrongLetterEmoji}`
 })
 
+const configWithSlack = computed<boolean>(() => {
+  return 'correctEmojiSlack' in config.value || 'correctLetterEmojiSlack' in config.value || 'wrongLetterEmojiSlack' in config.value
+})
 const result = computed<string>(() => {
   const newContent = [...value.value]
     .map((letter) => {
@@ -48,6 +51,27 @@ const result = computed<string>(() => {
   }
   return newContent
 })
+const resultWithSlackIcone = computed<string>(() => {
+  if (configWithSlack.value)
+    return result
+  return [...result.value]
+    .map((letter) => {
+      if (letter === ' ')
+        return ' '
+
+      if (config.value.correctEmojiSlack && letter === config.value.correctEmoji)
+        return config.value.correctEmojiSlack
+
+      if (config.value.correctLetterEmojiSlack && letter === config.value.correctLetterEmoji)
+        return config.value.correctLetterEmojiSlack
+
+      if (config.value.wrongLetterEmojiSlack && letter === config.value.wrongLetterEmoji)
+        return config.value.wrongLetterEmojiSlack
+
+      return letter
+    })
+    .join('')
+})
 function copyToClipboard(text: string) {
   navigator.clipboard.writeText(text)
 }
@@ -71,7 +95,7 @@ function copyPasteExample() {
     <p>
       <span mx-1 mt-3 text-xl flex justify-center items-center>🟥 🟡 🟦 <i class="mx-2 block i-carbon-arrow-right" />  <span v-html="configText" /></span>
     </p>
-    <SelectConfig v-model:selected="selected" class="flex flex-col items-center" text="Choisis ta configuration" />
+    <SelectConfig v-model:selected="selected" :config-list="configList" class="flex flex-col items-center" text="Choisis ta configuration" />
     <div py-4 />
 
     <div flex justify-center>
@@ -121,12 +145,21 @@ SUTOM #67 3/6
       />
       <p />
       <p><input v-model="creditMe" class="mr-2" type="checkbox">Partage l'url de ce site</p>
-      <button :disabled="!value" :class="!value ? 'disabled' : ''" m-3 text-sm btn-green @click="copyToClipboard(result)">
-        Copier
+      <button v-if="configWithSlack" :disabled="!value" :class="!value ? 'disabled' : ''" m-3 text-sm btn-jetpulp @click="copyToClipboard(resultWithSlackIcone)">
+        Copier avec les émojis de Slack
       </button>
-      <button v-if="supportShare()" :disabled="!value" class="m-3 text-sm btn-green" @click="startShare(result)">
-        Partager
-      </button>
+      <p />
+      <div inline-block>
+        <button :disabled="!value" :class="!value ? 'disabled' : ''" m-3 text-sm btn-green @click="copyToClipboard(resultWithSlackIcone)">
+          Copier <span v-if="configWithSlack">
+            les émojis de base
+          </span>
+        </button>
+        <button v-if="supportShare()" :disabled="!value" class="m-3 text-sm btn-green" @click="startShare(resultWithSlackIcone)">
+          Partager
+        </button>
+      </div>
+
       <div v-if="value && config.name === 'Chicks!'" text-xl m-auto i-twemoji-egg hover:i-twemoji-hatching-chick />
     </div>
   </div>
