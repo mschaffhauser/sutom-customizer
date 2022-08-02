@@ -6,9 +6,8 @@ import customConfigList from './../../json/config-emoji.json'
 const value: Ref<string> = ref('')
 const creditMe: Ref<boolean> = ref(false)
 const selected: Ref<string> = ref('Chicks!')
-const isSupported: Ref<boolean> = ref(!!navigator.clipboard.readText())
-// eslint-disable-next-line no-console
-console.log(customConfigList)
+const isFirefox: Ref<boolean> = ref(navigator.userAgent.includes('Firefox'))
+
 const baseConfig: { [key: string]: string } = {
   name: 'base',
   wrongLetterEmoji: '🟦',
@@ -73,13 +72,11 @@ function copyPasteExample() {
       <span mx-1 mt-3 text-xl flex justify-center items-center>🟥 🟡 🟦 <i class="mx-2 block i-carbon-arrow-right" />  <span v-html="customConfigText" /></span>
     </p>
     <SelectConfig v-model:selected="selected" class="flex flex-col items-center" text="Choisis ta configuration" />
-    <div py-4>
-      fonctionnel sur chrome/safari
-    </div>
+    <div py-4 />
 
     <div flex justify-center>
-      <button v-if="!isSupported" class="m-3 text-sm btn" @click="pasteToClipboard()">
-        Coller
+      <button :disabled="isFirefox" class="m-3 text-sm btn" @click="pasteToClipboard()">
+        Coller <span v-if="isFirefox">(not supported on Firefox)</span>
       </button>
       <button class="m-3 text-sm btn-secondary" @click="copyPasteExample()">
         Essayer l'exemple
