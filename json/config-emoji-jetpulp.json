@@ -22,5 +22,14 @@
         "wrongLetterEmojiSlack": ":sam-dépitée:",
         "correctLetterEmojiSlack": ":sam-mouais:",
         "correctEmojiSlack": ":noel-sam:"
+    },
+    {
+        "name": "Cécile",
+        "wrongLetterEmoji": "🟪",
+        "correctLetterEmoji": "👩🏻‍💻",
+        "correctEmoji": "💁🏻‍♀️",
+        "wrongLetterEmojiSlack": "🟪",
+        "correctLetterEmojiSlack": ":cecile-informaticienne:",
+        "correctEmojiSlack": ":cecile-inclinant-la-main:"
     }
 ]
