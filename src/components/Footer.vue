@@ -1,15 +1,5 @@
-<script setup lang="ts">
-const router = useRouter()
-const go = () => {
-  router.push('/slack')
-}
-</script>
-
 <template>
   <nav text-xl mt-6 inline-flex gap-2>
-    <button icon-btn @click="go">
-      Slack
-    </button>
     <button icon-btn @click="toggleDark()">
       <div dark:i-carbon-moon i-carbon-sun />
     </button>

@@ -165,13 +165,12 @@ SUTOM #67 3/6
       </button>
       <p />
       <button :disabled="!value" :class="!value ? 'disabled' : ''" m-3 text-sm btn-green @click="copyToClipboard(result)">
-        Copier
+        Copier <span v-if="configWithSlack">
+          les émojis de base
+        </span>
       </button>
       <button v-if="supportShare()" :disabled="!value" class="m-3 text-sm btn-green" @click="startShare(result)">
         Partager
-      </button>
-      <button class="m-3 text-sm btn-green" @click="go">
-        test
       </button>
       <div v-if="value && config.name === 'Chicks!'" text-xl m-auto i-twemoji-egg hover:i-twemoji-hatching-chick />
     </div>
