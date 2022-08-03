@@ -67,8 +67,8 @@ const result = computed<string>(() => {
   return newContent
 })
 const resultWithSlackIcone = computed<string>(() => {
-  if (configWithSlack.value)
-    return result as unknown as string
+  if (!configWithSlack.value)
+    return result.value as unknown as string
   return [...result.value]
     .map((letter) => {
       if (letter === ' ')
