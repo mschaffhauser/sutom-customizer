@@ -7,7 +7,13 @@ import baseConfig from './../../json/base-config-emoji.json'
 import defaultConfigList from './../../json/config-emoji.json'
 import configListJetpulp from './../../json/config-emoji-jetpulp.json'
 interface configType {
-  [key: string]: string
+  'name': string
+  'wrongLetterEmoji': string
+  'correctLetterEmoji': string
+  'correctEmoji': string
+  'correctLetterEmojiSlack'?: string
+  'correctEmojiSlack'?: string
+  'wrongLetterEmojiSlack'?: string
 }
 const route = useRoute()
 
@@ -21,11 +27,11 @@ if (route.query.config === 'jetpulp')
 
 const configList = computed<[configType]>(() => {
   if (route.query.config === 'jetpulp')
-    return [...configListJetpulp, ...defaultConfigList]
-  return [...defaultConfigList]
+    return [...configListJetpulp, ...defaultConfigList] as [configType]
+  return [...defaultConfigList] as [configType]
 })
 const config = computed<configType>(() => {
-  return configList.value.find(config => config.name === selected.value) || configList[0]
+  return configList.value.find(config => config.name === selected.value) || defaultConfigList[0]
 })
 const configText = computed<string>(() => {
   return `${`${config.value.correctEmoji}&nbsp;${config.value.correctLetterEmoji}`}&nbsp;${config.value.wrongLetterEmoji}`
@@ -62,7 +68,7 @@ const result = computed<string>(() => {
 })
 const resultWithSlackIcone = computed<string>(() => {
   if (configWithSlack.value)
-    return result
+    return result as unknown as string
   return [...result.value]
     .map((letter) => {
       if (letter === ' ')
@@ -163,6 +169,9 @@ SUTOM #67 3/6
       </button>
       <button v-if="supportShare()" :disabled="!value" class="m-3 text-sm btn-green" @click="startShare(result)">
         Partager
+      </button>
+      <button class="m-3 text-sm btn-green" @click="go">
+        test
       </button>
       <div v-if="value && config.name === 'Chicks!'" text-xl m-auto i-twemoji-egg hover:i-twemoji-hatching-chick />
     </div>

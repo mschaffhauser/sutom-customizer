@@ -2,7 +2,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { Ref } from 'vue'
-import configList from './../../json/config-emoji-jetpulp.json'
+import configList from '../../json/config-emoji-jetpulp.json'
 const value: Ref<string> = ref('')
 const creditMe: Ref<boolean> = ref(false)
 const selected: Ref<string> = ref('Suzi')
