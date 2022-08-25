@@ -17,7 +17,7 @@
     "vue": "^3.2.37",
     "vue-router": "^4.1.2",
     "push-dir": "^0.4.1"
-    },
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^0.25.2",
     "@iconify-json/carbon": "^1.1.7",
@@ -42,5 +42,8 @@
   },
   "eslintConfig": {
     "extends": "@antfu"
+  },
+  "volta": {
+    "node": "18.8.0"
   }
 }

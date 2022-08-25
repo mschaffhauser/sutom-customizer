@@ -5,6 +5,12 @@
         "correctEmoji": "🐥"
     },
     {
+        "name": "Paris",
+        "wrongLetterEmoji": "🍷",
+        "correctLetterEmoji": "🥖",
+        "correctEmoji": "👩🏻‍🎨"
+    },
+    {
         "name": "ColorBlind",
         "wrongLetterEmoji": "⬜",
         "correctLetterEmoji": "🟦",
