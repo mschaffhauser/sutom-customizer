@@ -177,7 +177,7 @@ SUTOM #67 3/6
   </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .disabled {
 pointer-events: none;
 }
