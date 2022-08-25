@@ -158,5 +158,11 @@
         "wrongLetterEmoji": "🟫",
         "correctLetterEmoji": "🪓",
         "correctEmoji": "🔥"
+    },
+    {
+        "name": "Dance",
+        "wrongLetterEmoji": "🚨",
+        "correctLetterEmoji": "🕺",
+        "correctEmoji": "🪩"
     }
 ]
