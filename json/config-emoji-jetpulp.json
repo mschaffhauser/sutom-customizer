@@ -24,11 +24,9 @@
         "correctEmojiSlack": ":noel-sam:"
     },
     {
-        "name": "Cecile",
-        "wrongLetterEmoji": "🟪",
-        "correctLetterEmoji": "😬",
-        "correctEmoji": "😀",
-        "correctLetterEmojiSlack": ":cecile-informaticienne:",
-        "correctEmojiSlack": ":cecile-inclinant-la-main:"
+        "name": "Paris",
+        "wrongLetterEmoji": "🍷",
+        "correctLetterEmoji": "🥖",
+        "correctEmoji": "👩🏻‍🎨"
     }
 ]
