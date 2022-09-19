@@ -22,5 +22,13 @@
         "wrongLetterEmojiSlack": ":sam-dépitée:",
         "correctLetterEmojiSlack": ":sam-mouais:",
         "correctEmojiSlack": ":noel-sam:"
+    },{
+        "name": "Teddy",
+        "wrongLetterEmoji": "🟫",
+        "correctLetterEmoji": "🥖",
+        "correctEmoji": "💁",
+        "wrongLetterEmojiSlack": "🟫",
+        "correctLetterEmojiSlack": "🥖",
+        "correctEmojiSlack": ":teddy-la-baguetta:"
     }
 ]
